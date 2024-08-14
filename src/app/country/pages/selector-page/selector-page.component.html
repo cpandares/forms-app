@@ -1,0 +1,50 @@
+
+<h1 class="mt-2">Selectores</h1>
+
+<hr>
+
+
+<form [formGroup]="myForm">
+
+    <div class="row mb-2">
+
+        <div class="col">
+            <label class="form-label">Continentes</label>
+           <select 
+            class="form-control"
+            formControlName="region"
+            
+            >
+                <option value="">--Selecione una opcion --</option>
+                <option 
+                *ngFor="let region of regions"
+                    [value]="region">{{ region }}</option>
+              
+           </select>
+
+           <label class="form-label">Paies</label>
+           <select 
+            class="form-control"
+            formControlName="country"
+            
+            >
+                <option value="">--Selecione un Pais --</option>
+                <!-- <option 
+                *ngFor="let region of regions"
+                    [value]="region">{{ region }}
+                </option> -->
+              
+           </select>
+        </div>
+
+        
+
+    </div>
+
+</form>
+
+<h3>Formylario</h3>
+
+<code>
+    {{ myForm.value | json }}
+</code>

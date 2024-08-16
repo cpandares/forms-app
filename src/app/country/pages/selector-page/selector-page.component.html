@@ -22,28 +22,52 @@
               
            </select>
 
-           <label class="form-label">Paies</label>
-           <select 
-            class="form-control"
-            formControlName="country"
-            
-            >
-                <option value="">--Selecione un Pais --</option>
-                <!-- <option 
-                *ngFor="let region of regions"
-                    [value]="region">{{ region }}
-                </option> -->
-              
-           </select>
+          
         </div>
 
-        
+       
 
+    </div>
+
+    <div class="row mb-2" *ngIf="countriesByRegion.length > 0">
+        <div class="col">
+            <label class="form-label">Paies</label>
+            <select 
+             class="form-control"
+             formControlName="country"
+             
+             >
+                 <option value="">--Selecione un Pais --</option>
+                 <option 
+                 *ngFor="let country of countriesByRegion"
+                     [value]="country.cca3">{{ country.name }}
+                 </option>
+               
+            </select>
+        </div>
+    </div>
+
+    <div class="row mb-2" *ngIf="borders.length > 0">
+        <div class="col">
+            <label class="form-label">Fronteras</label>
+            <select 
+             class="form-control"
+             formControlName="borders"
+             
+             >
+                 <option value="">--Selecione un Pais --</option>
+                 <option 
+                 *ngFor="let border of borders"
+                     [value]="border.cca3">{{ border.name }}
+                 </option>
+               
+            </select>
+        </div>
     </div>
 
 </form>
 
-<h3>Formylario</h3>
+<h3 class="mt-5">Formylario</h3>
 
 <code>
     {{ myForm.value | json }}
